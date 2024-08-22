@@ -1,3 +1,1 @@
-------
-Lux's Personnal Launcher Project
-------
+Lux's personnal launcher project
