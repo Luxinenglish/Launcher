@@ -26,7 +26,7 @@ public class TopBar extends Panel {
     public void init(PanelManager panelManager) {
         super.init(panelManager);
         this.topBar = this.layout;
-        this.layout.setStyle("-fx-background-color: rgb(35, 40, 40);");
+        this.layout.setStyle("-fx-background-color: white;");
         setCanTakeAllWidth(this.topBar);
 
         /*
@@ -43,7 +43,7 @@ public class TopBar extends Panel {
         // TopBar: center
         Label title = new Label("Lux's Launcher");
         title.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 18f));
-        title.setStyle("-fx-text-fill: white;");
+        title.setStyle("-fx-text-fill: black;");
         setCenterH(title);
         this.layout.getChildren().add(title);
 
@@ -55,6 +55,7 @@ public class TopBar extends Panel {
         setRight(topBarButton);
         this.layout.getChildren().add(topBarButton);
 
+
         /*
          * TopBar buttons configuration
          */
@@ -63,7 +64,7 @@ public class TopBar extends Panel {
         FontAwesomeIconView minimizeBtn = new FontAwesomeIconView(FontAwesomeIcon.WINDOW_MINIMIZE);
         setCanTakeAllWidth(closeBtn, fullscreenBtn, minimizeBtn);
 
-        closeBtn.setFill(Color.WHITE);
+        closeBtn.setFill(Color.BLACK);
         closeBtn.setOpacity(.7f);
         closeBtn.setSize("18px");
         closeBtn.setOnMouseEntered(e -> closeBtn.setOpacity(1.f));
@@ -71,7 +72,7 @@ public class TopBar extends Panel {
         closeBtn.setOnMouseClicked(e -> System.exit(0));
         closeBtn.setTranslateX(70f);
 
-        fullscreenBtn.setFill(Color.WHITE);
+        fullscreenBtn.setFill(Color.BLACK);
         fullscreenBtn.setOpacity(0.70f);
         fullscreenBtn.setSize("14px");
         fullscreenBtn.setOnMouseEntered(e -> fullscreenBtn.setOpacity(1.0f));
@@ -79,7 +80,7 @@ public class TopBar extends Panel {
         fullscreenBtn.setOnMouseClicked(e -> this.panelManager.getStage().setMaximized(!this.panelManager.getStage().isMaximized()));
         fullscreenBtn.setTranslateX(50.0d);
 
-        minimizeBtn.setFill(Color.WHITE);
+        minimizeBtn.setFill(Color.BLACK);
         minimizeBtn.setOpacity(0.70f);
         minimizeBtn.setSize("18px");
         minimizeBtn.setOnMouseEntered(e -> minimizeBtn.setOpacity(1.0f));

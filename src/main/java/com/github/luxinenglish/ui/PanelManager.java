@@ -14,6 +14,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 public class PanelManager {
     private final Launcher launcher;
     private final Stage stage;
@@ -29,8 +30,8 @@ public class PanelManager {
         this.stage.setTitle("Launcher");
         this.stage.setMinWidth(854);
         this.stage.setMinHeight(480);
-        this.stage.setWidth(1080);
-        this.stage.setHeight(700);
+        this.stage.setWidth(1180);
+        this.stage.setHeight(620);
         this.stage.centerOnScreen();
         this.stage.getIcons().add(new Image("images/icon.png"));
 
@@ -59,17 +60,16 @@ public class PanelManager {
             topBar.init(this);
         }
 
-        this.layout.add(this.contentPane,0,1);
-        GridPane.setVgrow(this.contentPane, Priority.ALWAYS);
-        GridPane.setHgrow(this.contentPane, Priority.ALWAYS);
-
-
         this.stage.show();
     }
 
     public void showPanel(IPanel panel) {
         this.contentPane.getChildren().clear();
         this.contentPane.getChildren().add(panel.getLayout());
+        if (panel.getStylesheetsPath() != null) {
+            this.stage.getScene().getStylesheets().clear();
+            this.stage.getScene().getStylesheets().add(panel.getStylesheetsPath());
+        }
         panel.init(this);
         panel.onShow();
     }
