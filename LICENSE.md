@@ -1,7 +1,7 @@
 # Exclusive Code Ownership and Usage License
 
 **Version**: 1.0  
-**Effective Date**: [Insert Date]
+**Effective Date**: [23/08/2024]
 
 ## 1. Ownership and Rights
 - The code and all derivatives thereof are the sole and exclusive property of the License Holder, **[Your Name]**.
