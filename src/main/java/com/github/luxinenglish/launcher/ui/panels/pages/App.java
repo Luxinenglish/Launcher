@@ -4,6 +4,7 @@ import com.github.luxinenglish.launcher.Launcher;
 import com.github.luxinenglish.launcher.ui.PanelManager;
 import com.github.luxinenglish.launcher.ui.panel.IPanel;
 import com.github.luxinenglish.launcher.ui.panel.Panel;
+import com.github.luxinenglish.launcher.ui.panels.pages.content.Settings;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import fr.theshark34.openlauncherlib.util.Saver;
@@ -106,7 +107,7 @@ public class App extends Panel {
         setCanTakeAllSize(settingsBtn);
         setTop(settingsBtn);
         settingsBtn.setTranslateY(130d);
-        settingsBtn.setOnMouseClicked(e -> setPage(null, settingsBtn));
+        settingsBtn.setOnMouseClicked(e -> setPage(new Settings(), settingsBtn));
 
         sidemenu.getChildren().addAll(homeBtn, settingsBtn);
 
@@ -121,7 +122,7 @@ public class App extends Panel {
         String avatarUrl = "https://minotar.net/avatar/" + (
                 saver.get("offline-username") != null ?
                         "MHF_Steve.png" :
-                        Launcher.getInstance().getAuthProfile().getId() + ".png"
+                        Launcher.getInstance().getAuthInfos().getUuid() + ".png"
         );
         ImageView avatarView = new ImageView();
         Image avatarImg = new Image(avatarUrl);
@@ -134,7 +135,7 @@ public class App extends Panel {
         avatarView.setTranslateX(15d);
         userPane.getChildren().add(avatarView);
 
-        Label usernameLabel = new Label(Launcher.getInstance().getAuthProfile().getName());
+        Label usernameLabel = new Label(Launcher.getInstance().getAuthInfos().getUsername());
         usernameLabel.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 25f));
         setCanTakeAllSize(usernameLabel);
         setCenterV(usernameLabel);
@@ -157,7 +158,7 @@ public class App extends Panel {
             saver.remove("clientToken");
             saver.remove("offline-username");
             saver.save();
-            Launcher.getInstance().setAuthProfile(null);
+            Launcher.getInstance().setAuthInfos(null);
             this.panelManager.showPanel(new Login());
         });
         userPane.getChildren().add(logoutBtn);
