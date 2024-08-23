@@ -80,7 +80,7 @@ public class Login extends Panel {
         /*
          * Login sidebar
          */
-        Label title = new Label("Lux's Launcher");
+        Label title = new Label("JavaFX Launcher");
         title.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 30f));
         title.getStyleClass().add("login-title");
         setCenterH(title);

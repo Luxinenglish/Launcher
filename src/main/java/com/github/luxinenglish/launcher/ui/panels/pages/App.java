@@ -20,6 +20,9 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
+
+
+
 public class App extends Panel {
     GridPane sidemenu = new GridPane();
     GridPane navContent = new GridPane();
